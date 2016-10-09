@@ -19,14 +19,16 @@ class App extends React.Component {
   componentDidMount() {
     this.setState({projectBubbles:[
       {id: 0, img: "app/assets/cambioLogo.png", desc: `Cambio is an electron app paired with a node.js backend.
-      The cambio app acts a browser but when url request are made an email is sent to our email server
-      and our server resolves the url request and converts to markdown for compresstion and emails the response
-      to the sender of the request. The Cambio browser will automaticall detect the respond email and display it.
-      This allows access to the entire internet if email is available to fight internet censorship.`, title: "Cambio"},
+      The cambio app acts a browser but when url request are made an email is
+      sent to our email server and our server resolves the url request and
+      converts to markdown for compression and emails the response to the sender
+      of the request. The Cambio browser will automatically detect the respond
+      email and display it. This allows access to the entire internet if email
+       is available to fight internet censorship.`, title: "Cambio"},
       {id: 1, img:"http://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/373/193/datas/gallery.jpg",
        desc: `A app that connects users to local tutors in their area. The React Native app uses the phones GPS
        to access the firebase database to find any active tutors nearby and after each session the user will pay
-       the tutor which is possible througth the use of stripe API.`, title: 'Learnet'}
+       the tutor which is possible through the use of stripe API.`, title: 'Learnet'}
     ]});
   }
 
