@@ -3,7 +3,7 @@ import React from 'react';
 class Section extends React.Component {
   render() {
     return(
-      <div style={container}>
+      <div style={Object.assign({margin : this.props.margin}, container) }>
         {this.props.children}
       </div>
     );

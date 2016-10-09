@@ -13,15 +13,21 @@ class TextBlob extends React.Component {
          //scale={[.75, .9]}
          >
         <div style={blob}>
-          I hold the title of a programmer with experience in Web Dev and Game Dev
-          You can check out some of my skills and projects below
+          {this.props.text}
         </div>
       </Anime>
     );
   }
 }
+//Hey I'm Kerlin and I am a programmer that currently works as a web developer at
+//FIU's Honors College. I also dabble in game development as a hobby.
+
 const blob = {
-  backgroundColor: "rgba(255,255,255,0.75)",
-  margin: "auto"//"rgba(1,1,1,0.2)" #BDBDBD
+  //display: 'flex',
+  wordWrap: "break-word",
+  //backgroundColor: "#FFEBEE",
+  margin: "auto",
+  borderRadius:"2%",
+  maxWidth: "60%"//"rgba(1,1,1,0.2)" #BDBDBD
 }
 export default TextBlob;

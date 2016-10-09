@@ -58,22 +58,28 @@ const bubble = {
   borderRadius: "50%",
   //width: 100,
   //height: 100,
-  backgroundColor: "rgba(255, 255, 255, 0.9)"
+  backgroundColor: "#FFEBEE"
 }
 
 const body = {
   borderRadius: "5%",
-  backgroundColor: "rgba(255, 255, 255, 0.9)",
-  maxWidth: 150
+  backgroundColor: "#FFEBEE",
+  maxWidth: 250
 }
 
 const title = {
-  textAlign:"center"
+  textAlign:"center",
+  fontFamily: "Times New Roman",
+  fontWeight: "bold",
+  color: "#616161",
+  fontSize: "16px"
 }
 
 const desc = {
   textAlign:"center",
-  wordWrap: "break-word"
+  wordWrap: "break-word",
+  color: "#616161",
+  fontSize: "15px"
 }
 
 export default ProjectBubble;
