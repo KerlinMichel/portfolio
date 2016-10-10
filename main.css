@@ -2,5 +2,15 @@ html *
 {
    font-family: Arial;
    color: #FFEBEE;
-   font-size: 25px;
+}
+
+html {
+  font-size: 25px;background:linear-gradient(to right,rgb(244, 67, 54),rgb(187, 10, 30));
+  background:-webkit-linear-gradient(left,rgb(244, 67, 54),rgb(187, 10, 30));
+  background:-moz-linear-gradient(left,rgb(244, 67, 54),rgb(187, 10, 30));
+  height: 100%;
+}
+
+body {
+  margin: 0;
 }
