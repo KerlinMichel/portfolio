@@ -4,7 +4,8 @@ import Section from './components/Section.jsx';
 import TextBlob from './components/TextBlob.jsx';
 import ProjectBubble from './components/ProjectBubble.jsx';
 import Modal from './components/Modal.jsx';
-import List from './components/List.jsx'
+import List from './components/List.jsx';
+import Badge from './components/Badge.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,7 +13,9 @@ class App extends React.Component {
     this.state = {
       projectBubbles: [],
       modalShow: false,
-      modalData: {}
+      modalData: {},
+      describingProject: false,
+      projectData: {}
     }
   }
 
@@ -32,23 +35,36 @@ class App extends React.Component {
     ]});
   }
 
-  popUp(e, project) {
-    //console.log(e);
-    //console.log(project);
-    //this.setState({modalShow: true, modalData: project});
+  describeProject(e, project) {
+    this.setState({describingProject: true, projectData: project});
   }
+
+  closeDesc() {
+    this.setState({describingProject: false});
+  }
+
   render() {
     let projects;
     for(var i in this.state.projectBubbles) {
 
     }
-    //console.log(this.state.projectBubbles);
     let popUp;
     if(this.state.modalShow) {
       popUp = <Modal title={this.state.modalData.title}/>
     } else {
 
     }
+    if(this.state.describingProject) {
+      let project = this.state.projectData;
+      projects =
+      <Badge large image={project.img} title={project.title} desc={project.desc} onClose={() => this.closeDesc()}/>
+    } else {
+      projects =
+      this.state.projectBubbles.map((project) => (
+        <Badge onClick={(e) => this.describeProject(e, project)} key={project.id} image={project.img} title={project.title} desc={project.desc}/>
+      ))
+    }
+
     return (
       <div style={rootStyle}>
         <Header text={"Kerlin Michel"}/>
@@ -57,14 +73,10 @@ class App extends React.Component {
         </Section>
         <Section margin="0px 0px 25px">
           <List style={{marginRight: "7.5%"}} title={"Programming languages"} items={["Java", "C/C++", "Javascript", "python", "C#"]}/>
-          <List style={{marginLeft: "7.5%"}} title={"Technologies"} items={["node.js", "react.js", "React Native", "libGDX", "OpenGL", "Electron"]}/>
+          <List style={{marginLeft: "7.5%"}} title={"Technologies"} items={["Web Development", "node.js", "react.js", "React Native", "libGDX", "OpenGL", "Electron"]}/>
         </Section>
         <Section>
-          {
-            this.state.projectBubbles.map((project) => (
-              <ProjectBubble onClick={(e) => this.popUp(e, project)} key={project.id} image={project.img} title={project.title} desc={project.desc}/>
-            ))
-          }
+          {projects}
         </Section>
         {popUp}
       </div>

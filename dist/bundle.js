@@ -21469,6 +21469,10 @@
 
 	var _List2 = _interopRequireDefault(_List);
 
+	var _Badge = __webpack_require__(181);
+
+	var _Badge2 = _interopRequireDefault(_Badge);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21488,7 +21492,9 @@
 	    _this.state = {
 	      projectBubbles: [],
 	      modalShow: false,
-	      modalData: {}
+	      modalData: {},
+	      describingProject: false,
+	      projectData: {}
 	    };
 	    return _this;
 	  }
@@ -21500,11 +21506,14 @@
 	          desc: 'A app that connects users to local tutors in their area. The React Native app uses the phones GPS\n       to access the firebase database to find any active tutors nearby and after each session the user will pay\n       the tutor which is possible through the use of stripe API.', title: 'Learnet' }] });
 	    }
 	  }, {
-	    key: 'popUp',
-	    value: function popUp(e, project) {
-	      //console.log(e);
-	      //console.log(project);
-	      //this.setState({modalShow: true, modalData: project});
+	    key: 'describeProject',
+	    value: function describeProject(e, project) {
+	      this.setState({ describingProject: true, projectData: project });
+	    }
+	  }, {
+	    key: 'closeDesc',
+	    value: function closeDesc() {
+	      this.setState({ describingProject: false });
 	    }
 	  }, {
 	    key: 'render',
@@ -21513,11 +21522,23 @@
 
 	      var projects = void 0;
 	      for (var i in this.state.projectBubbles) {}
-	      //console.log(this.state.projectBubbles);
 	      var popUp = void 0;
 	      if (this.state.modalShow) {
 	        popUp = _react2.default.createElement(_Modal2.default, { title: this.state.modalData.title });
 	      } else {}
+	      if (this.state.describingProject) {
+	        var project = this.state.projectData;
+	        projects = _react2.default.createElement(_Badge2.default, { large: true, image: project.img, title: project.title, desc: project.desc, onClose: function onClose() {
+	            return _this2.closeDesc();
+	          } });
+	      } else {
+	        projects = this.state.projectBubbles.map(function (project) {
+	          return _react2.default.createElement(_Badge2.default, { onClick: function onClick(e) {
+	              return _this2.describeProject(e, project);
+	            }, key: project.id, image: project.img, title: project.title, desc: project.desc });
+	        });
+	      }
+
 	      return _react2.default.createElement(
 	        'div',
 	        { style: rootStyle },
@@ -21531,16 +21552,12 @@
 	          _Section2.default,
 	          { margin: '0px 0px 25px' },
 	          _react2.default.createElement(_List2.default, { style: { marginRight: "7.5%" }, title: "Programming languages", items: ["Java", "C/C++", "Javascript", "python", "C#"] }),
-	          _react2.default.createElement(_List2.default, { style: { marginLeft: "7.5%" }, title: "Technologies", items: ["node.js", "react.js", "React Native", "libGDX", "OpenGL", "Electron"] })
+	          _react2.default.createElement(_List2.default, { style: { marginLeft: "7.5%" }, title: "Technologies", items: ["Web Development", "node.js", "react.js", "React Native", "libGDX", "OpenGL", "Electron"] })
 	        ),
 	        _react2.default.createElement(
 	          _Section2.default,
 	          null,
-	          this.state.projectBubbles.map(function (project) {
-	            return _react2.default.createElement(_ProjectBubble2.default, { onClick: function onClick(e) {
-	                return _this2.popUp(e, project);
-	              }, key: project.id, image: project.img, title: project.title, desc: project.desc });
-	          })
+	          projects
 	        ),
 	        popUp
 	      );
@@ -22748,6 +22765,134 @@
 	};
 
 	exports.default = List;
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactAnime = __webpack_require__(174);
+
+	var _reactAnime2 = _interopRequireDefault(_reactAnime);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Badge = function (_React$Component) {
+	  _inherits(Badge, _React$Component);
+
+	  function Badge(props) {
+	    _classCallCheck(this, Badge);
+
+	    var _this = _possibleConstructorReturn(this, (Badge.__proto__ || Object.getPrototypeOf(Badge)).call(this, props));
+
+	    _this.state = {
+	      moreDetails: false
+	    };
+	    return _this;
+	  }
+
+	  _createClass(Badge, [{
+	    key: 'toggle',
+	    value: function toggle() {}
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var imageSize = void 0;
+	      var descText = void 0;
+	      var padding = void 0; //When 3 inputs => 1: top 2: left and right 3: bottom
+	      var back = void 0;
+	      var width = void 0,
+	          height = void 0;
+	      var close = void 0;
+	      if (this.props.large) {
+	        width = "500px";
+	        //height = "250px";
+	        imageSize = 70;
+	        descText = this.props.desc;
+	        close = _react2.default.createElement(
+	          'div',
+	          { onClick: this.props.onClose, style: { color: "rgb(244, 67, 54)", marginLeft: "auto", marginRight: "10px", marginTop: "5px" } },
+	          '\u2716'
+	        );
+	      } else {
+	        width = "250px";
+	        height = "70px";
+	        imageSize = 70; //100
+	        descText = '';
+	        padding = "0px 20px 50px";
+	        close = null;
+	      }
+	      return _react2.default.createElement(
+	        _reactAnime2.default,
+	        {
+	          direction: 'reverse',
+	          scale: 0,
+	          duration: 2000
+	        },
+	        _react2.default.createElement(
+	          'div',
+	          { onClick: this.props.onClick, style: Object.assign({ width: width, height: height }, container) },
+	          _react2.default.createElement(
+	            'div',
+	            { style: { display: "flex" } },
+	            _react2.default.createElement(
+	              'div',
+	              { style: { width: imageSize, height: imageSize, display: "flex" } },
+	              _react2.default.createElement('img', { src: this.props.image, style: Object.assign({ display: "block", margin: "auto", maxWidth: imageSize, maxHeight: imageSize }, image) })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { style: { color: "rgb(244, 67, 54)", margin: "20px", alignSelf: "", justifyContent: "center", fontWeight: "bolder" } },
+	              this.props.title
+	            ),
+	            close
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { style: { flex: 1, fontSize: "15px", color: "black", margin: "10px" } },
+	            descText
+	          )
+	        )
+	      ); //(this.props.large ? "": "center")
+	    }
+	  }]);
+
+	  return Badge;
+	}(_react2.default.Component);
+
+	var container = {
+	  borderRadius: "7.5px",
+	  background: "white",
+	  //width: "250px",
+	  //height: "70px",
+	  margin: "25px",
+	  display: "flex",
+	  flexDirection: "column"
+	};
+
+	var image = {
+	  //float: "left",
+	  //borderRadius: "25%"
+	};
+
+	exports.default = Badge;
 
 /***/ }
 /******/ ]);
