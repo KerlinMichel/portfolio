@@ -21552,7 +21552,7 @@
 	          _Section2.default,
 	          { margin: '0px 0px 25px' },
 	          _react2.default.createElement(_List2.default, { style: { marginRight: "7.5%" }, title: "Programming languages/Skills",
-	            items: ["Java", "C/C++", "Javascript", "python", "C#", "Mobile Development", "TCP", "Network Sockets", "Web Development", "Game Development", "Experience in Linux Operation System and Windows"] }),
+	            items: ["Java", "C/C++", "Javascript", "python", "C#", "Mobile Development", "TCP", "Network Sockets", "Web Development", "Game Development", "Linux OS", "Windows OS"] }),
 	          _react2.default.createElement(_List2.default, { style: { marginLeft: "7.5%" }, title: "Technologies", items: ["Android", "libGDX", "OpenGL", "Docker", "Node.js", "react.js", "React Native", "Electron"] })
 	        ),
 	        _react2.default.createElement(
