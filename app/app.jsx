@@ -75,7 +75,7 @@ class App extends React.Component {
           <List style={{marginRight: "7.5%"}} title={"Programming languages/Skills"}
            items={["Java", "C/C++", "Javascript", "python", "C#", "Mobile Development",
             "TCP", "Network Sockets", "Web Development", "Game Development", "Experience in Linux Operation System and Windows"]}/>
-          <List style={{marginLeft: "7.5%"}} title={"Technologies"} items={["Android", "libGDX", "OpenGL", "Docker", "Node.js", "react.js", "React Native" "Electron"]}/>
+          <List style={{marginLeft: "7.5%"}} title={"Technologies"} items={["Android", "libGDX", "OpenGL", "Docker", "Node.js", "react.js", "React Native", "Electron"]}/>
         </Section>
         <Section>
           {projects}
