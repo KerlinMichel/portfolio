@@ -22884,7 +22884,8 @@
 	  //height: "70px",
 	  margin: "25px",
 	  display: "flex",
-	  flexDirection: "column"
+	  flexDirection: "column",
+	  cursor: "pointer"
 	};
 
 	var image = {

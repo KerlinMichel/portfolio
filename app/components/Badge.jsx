@@ -71,7 +71,8 @@ const container = {
   //height: "70px",
   margin: "25px",
   display: "flex",
-  flexDirection: "column"
+  flexDirection: "column",
+  cursor: "pointer"
 }
 
 const image = {

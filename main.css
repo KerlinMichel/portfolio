@@ -14,3 +14,7 @@ html {
 body {
   margin: 0;
 }
+
+g * { /*Fix animation being blurry in Chrome*/
+  -webkit-transform: translate3d(0,0,0);
+}
