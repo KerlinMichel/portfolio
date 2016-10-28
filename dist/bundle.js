@@ -21445,6 +21445,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(34);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	var _Header = __webpack_require__(173);
 
 	var _Header2 = _interopRequireDefault(_Header);
@@ -21528,7 +21532,7 @@
 	      } else {}
 	      if (this.state.describingProject) {
 	        var project = this.state.projectData;
-	        projects = _react2.default.createElement(_Badge2.default, { large: true, image: project.img, title: project.title, desc: project.desc, onClose: function onClose() {
+	        projects = _react2.default.createElement(_Badge2.default, { large: true, focus: true, image: project.img, title: project.title, desc: project.desc, onClose: function onClose() {
 	            return _this2.closeDesc();
 	          } });
 	      } else {
@@ -21572,7 +21576,7 @@
 
 	var me = 'Hey I\'m Kerlin and I am a programmer that currently works as a web developer at\nFIU\'s Honors College. I also dabble in game development as a hobby. Contact me at: \n michelkerlin@gmail.com';
 
-	console.log('Interested in how this site was made? I use react.js and react-anime\n   which is a react wrapper for anime.js. I plan to use redux if my sites grows\n   too complex. Check out the code here: </break> https://github.com/KerlinMichel/portfolio');
+	console.log('Interested in how this site was made? I use react.js and react-anime\n   which is a react wrapper for anime.js. I plan to use redux if my sites grows\n   too complex. Check out the code here: https://github.com/KerlinMichel/portfolio');
 
 	exports.default = App;
 
@@ -22783,6 +22787,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(34);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	var _reactAnime = __webpack_require__(174);
 
 	var _reactAnime2 = _interopRequireDefault(_reactAnime);
@@ -22810,8 +22818,10 @@
 	  }
 
 	  _createClass(Badge, [{
-	    key: 'toggle',
-	    value: function toggle() {}
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      if (this.props.focus) _reactDom2.default.findDOMNode(this).scrollIntoView();
+	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -22822,17 +22832,23 @@
 	      var width = void 0,
 	          height = void 0;
 	      var close = void 0;
+	      var cursor = void 0;
+
 	      if (this.props.large) {
 	        width = "500px";
 	        //height = "250px";
 	        imageSize = 70;
 	        descText = this.props.desc;
+	        cursor = 'auto';
 	        close = _react2.default.createElement(
 	          'div',
-	          { onClick: this.props.onClose, style: { color: "rgb(244, 67, 54)", marginLeft: "auto", marginRight: "10px", marginTop: "5px" } },
+	          { onClick: this.props.onClose, style: { color: "rgb(244, 67, 54)",
+	              marginLeft: "auto", marginRight: "10px", marginTop: "5px",
+	              cursor: "pointer" } },
 	          '\u2716'
 	        );
 	      } else {
+	        cursor = 'pointer';
 	        width = "250px";
 	        height = "70px";
 	        imageSize = 70; //100
@@ -22849,7 +22865,7 @@
 	        },
 	        _react2.default.createElement(
 	          'div',
-	          { onClick: this.props.onClick, style: Object.assign({ width: width, height: height }, container) },
+	          { onClick: this.props.onClick, style: Object.assign({ width: width, height: height, cursor: cursor }, container) },
 	          _react2.default.createElement(
 	            'div',
 	            { style: { display: "flex" } },
@@ -22885,8 +22901,7 @@
 	  //height: "70px",
 	  margin: "25px",
 	  display: "flex",
-	  flexDirection: "column",
-	  cursor: "pointer"
+	  flexDirection: "column"
 	};
 
 	var image = {

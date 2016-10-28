@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Anime from 'react-anime';
 
 class Badge extends React.Component {
@@ -10,8 +11,9 @@ class Badge extends React.Component {
     }
   }
 
-  toggle() {
-
+  componentDidMount() {
+    if(this.props.focus)
+      ReactDOM.findDOMNode(this).scrollIntoView();
   }
 
   render() {
@@ -21,17 +23,23 @@ class Badge extends React.Component {
     let back;
     let width, height;
     let close;
+    let cursor;
+
     if(this.props.large) {
       width = "500px";
       //height = "250px";
       imageSize = 70;
       descText = this.props.desc;
+      cursor = 'auto';
       close =
-      <div onClick={this.props.onClose} style={{color: "rgb(244, 67, 54)", marginLeft: "auto", marginRight: "10px", marginTop: "5px"}}>
+      <div onClick={this.props.onClose} style={{color: "rgb(244, 67, 54)",
+        marginLeft: "auto", marginRight: "10px", marginTop: "5px",
+        cursor: "pointer" }}>
         &#10006;
       </div>
     }
     else {
+      cursor = 'pointer';
       width = "250px";
       height = "70px";
       imageSize = 70; //100
@@ -45,7 +53,7 @@ class Badge extends React.Component {
       scale={0}
       duration={2000}
       >
-        <div onClick={this.props.onClick} style={Object.assign({width: width, height: height}, container)}>
+        <div onClick={this.props.onClick} style={Object.assign({width: width, height: height, cursor: cursor}, container)}>
           <div style={{display: "flex"}}>
             <div style={{width: imageSize, height: imageSize, display: "flex"}}>
               <img src={this.props.image} style={Object.assign({display: "block", margin: "auto", maxWidth: imageSize, maxHeight: imageSize}, image)}/>
@@ -71,8 +79,7 @@ const container = {
   //height: "70px",
   margin: "25px",
   display: "flex",
-  flexDirection: "column",
-  cursor: "pointer"
+  flexDirection: "column"
 }
 
 const image = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Header from './components/Header.jsx';
 import Section from './components/Section.jsx';
 import TextBlob from './components/TextBlob.jsx';
@@ -43,6 +44,7 @@ class App extends React.Component {
     this.setState({describingProject: false});
   }
 
+
   render() {
     let projects;
     for(var i in this.state.projectBubbles) {
@@ -57,7 +59,7 @@ class App extends React.Component {
     if(this.state.describingProject) {
       let project = this.state.projectData;
       projects =
-      <Badge large image={project.img} title={project.title} desc={project.desc} onClose={() => this.closeDesc()}/>
+      <Badge large focus image={project.img} title={project.title} desc={project.desc} onClose={() => this.closeDesc()}/>;
     } else {
       projects =
       this.state.projectBubbles.map((project) => (
@@ -93,6 +95,6 @@ FIU's Honors College. I also dabble in game development as a hobby. Contact me a
 
 console.log(`Interested in how this site was made? I use react.js and react-anime
    which is a react wrapper for anime.js. I plan to use redux if my sites grows
-   too complex. Check out the code here: </break> https://github.com/KerlinMichel/portfolio`);
+   too complex. Check out the code here: https://github.com/KerlinMichel/portfolio`);
 
 export default App;
