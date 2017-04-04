@@ -1,5 +1,5 @@
 config = {
-  entry: './index.js',
+  entry: './root.js',
   output: {
     path: __dirname + '/dist/',
     filename: 'bundle.js'
