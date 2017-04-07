@@ -1,0 +1,29 @@
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="graph.css">
+<script src="config.json">
+</script>
+<script src="main.js">
+</script>
+</head>
+
+<body>
+
+<div class="row">
+  <p>Enter a subreddit name and see their sentiment values</p>
+</div>
+<div class="row">
+  <span>
+    <label for="name">r/</label><input class="basic-slide" id="subreddit" onkeypress="submit(event)" type="text" placeholder="subreddit_name" />
+  </span>
+</div>
+
+<div class="row" id="graph">
+  <ul>
+    <li id="pos" style="margin-bottom:25px; height:50px"><a></a></li>
+    <li id="neu" style="margin-bottom:25px; height:50px"><a></a></li>
+    <li id="neg" style="margin-bottom:25px; height:50px"><a></a></li>  
+  </ul>
+</div>
+
+</body>

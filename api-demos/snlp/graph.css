@@ -1,0 +1,104 @@
+/*
+https://codepen.io/kenchernoff/pen/bjEkl
+*/
+
+@import "compass/css3";
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+
+#graph * {
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans", sans-serif;
+}
+
+a {
+ text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li a {
+  display: block;
+  padding: 1em 1em 1em 3em;
+  color: #fff;
+  -webkit-transition: all 0.1s ease-in-out;
+  text-transform: uppercase;
+  box-shadow: inset rgba(0,0,0,0.3) 0 2px 6px;
+}
+
+ul li:before {
+    content: '';
+    display: block;
+    position: absolute;
+    font-size: 2em;
+    color: rgba(90,0,0,0.5);
+    top: 5px;
+    left: 15px;
+    opacity: 1.0 !important;
+    font-weight: bold;
+}
+
+ul li {
+  position: relative;
+  &:nth-child(1) {
+  width: 100%;  
+  }
+  &:nth-child(1):before {
+    content: '1';
+  }
+   &:nth-child(1) a {
+    background: rgba(193,0,0,0.9); 
+    box-shadow: none;
+  }
+  
+  &:nth-child(2) {
+  width: 80%;  
+  }
+  &:nth-child(2):before {
+    content: '2';
+  }
+  &:nth-child(2) a {
+    background: rgba(193,0,0,0.8); 
+  }
+  
+  &:nth-child(3) {
+  width: 60%;  
+  }
+  &:nth-child(3):before {
+    content: '3';
+  }
+  &:nth-child(3) a {
+    background: rgba(193,0,0,0.7); 
+  }
+  
+  &:nth-child(4) {
+  width: 40%;  
+  }
+  &:nth-child(4):before {
+    content: '4';
+  }
+  &:nth-child(4) a {
+    background: rgba(193,0,0,0.6); 
+  }
+  
+  &:nth-child(5) {
+  width: 20%;  
+  }
+  &:nth-child(5):before {
+    content: '5';
+  }
+  &:nth-child(5) a {
+    background: rgba(193,0,0,0.5); 
+  }
+  
+}
+
+/*ul li a:hover {
+  background: rgba(193,0,0,1.0); 
+ -webkit-transition: all 0.1s ease-in-out; 
+  color: rgb(255,132,0);
+}*/
+

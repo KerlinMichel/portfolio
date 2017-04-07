@@ -1,0 +1,5 @@
+var config = 
+{
+  "SNLP_URL" : "",
+  "DATA_URL" : ""
+}
